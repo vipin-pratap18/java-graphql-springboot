@@ -1,0 +1,25 @@
+schema {
+   query : Query
+}
+
+
+type Query {
+    blogs: [Blog]
+    blog(blogId: String!): Blog
+}
+
+type Mutation {
+    createBlog(blogTitle: String!, blogMessage: String!): Blog!
+}
+
+type Subscription {
+    newBlog: Blog!
+}
+
+type Blog {
+    blogId: String
+    blogTitle: String
+    blogMessage: String
+    author: String
+    likes: BigInteger
+}
