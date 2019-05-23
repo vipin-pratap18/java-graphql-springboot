@@ -3,6 +3,7 @@ package com.test.resolver;
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import com.test.manager.BlogManager;
 import com.test.model.Blog;
+import com.test.model.BlogIdObj;
 import org.bson.types.ObjectId;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,6 +31,10 @@ public class BlogQueryResolver implements GraphQLQueryResolver {
     public Blog blog(String blogId) {
         return blogManager.getBlogById(blogId);
     }
+
+    public Blog blogByObject(BlogIdObj blog){
+		return blogManager.getBlogById(blog.getBlogId());
+	}
 
 
 }

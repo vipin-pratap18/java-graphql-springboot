@@ -6,6 +6,7 @@ schema {
 type Query {
     blogs: [Blog]
     blog(blogId: String!): Blog
+    blogByObject(blogIdObj: BlogIdObj): Blog
 }
 
 type Mutation {
@@ -21,5 +22,9 @@ type Blog {
     blogTitle: String
     blogMessage: String
     author: String
-    likes: BigInteger
+    likes: Int
+}
+
+input BlogIdObj {
+    blogId: String!
 }
